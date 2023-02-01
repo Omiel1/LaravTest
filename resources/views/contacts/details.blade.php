@@ -4,7 +4,7 @@
 <!-- {{$contact->name}} -->
 
 <div id="phone-box" class="position-absolute top-50 start-50 translate-middle">
-    <h2>Contact Details</h2>
+    <h2 id='head' class='my-3'>ContactOS - Contact Details</h2>
     <hr>
     <div id="details-box">
         <!-- Contact detail -->
@@ -21,9 +21,9 @@
                         </div>
                         <div class="form-label-group my-2 col-6">
                             <input type="text" name="name" class="form-control rounded-0" value="{{$contact->name}}" autofocus>
-                        
+                                
                             @error('name')
-                                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                            <span class="error-message">{{$message}}</span>
                             @enderror 
                         </div>
                     </div>
@@ -38,6 +38,9 @@
                         <div class="form-label-group my-2 col-6">
                             <input type="text" name="surname" class="form-control rounded-0" value="{{$contact->surname}}" autofocus>
                         
+                            @error('surname')
+                                <p class="error-message">{{$message}}</p>
+                            @enderror 
                         </div>
                     </div>
 
@@ -51,6 +54,9 @@
                         <div class="form-label-group my-2 col-6">
                             <input type="text" name="address" class="form-control rounded-0" value="{{$contact->address}}">
                         
+                            @error('address')
+                                <p class="error-message">{{$message}}</p>
+                            @enderror 
                         </div> 
                     </div>
 
@@ -64,6 +70,9 @@
                         <div class="form-label-group my-2 col-6">
                             <input type="text" name="email" class="form-control rounded-0" value="{{$contact->email}}">
                         
+                            @error('email')
+                                <p class="error-message">{{$message}}</p>
+                            @enderror 
                         </div> 
                     </div>
 
@@ -78,12 +87,12 @@
                             <input type="text" name="phone" class="form-control rounded-0" value="{{$contact->phone}}">
                         
                             @error('phone')
-                                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                                <p class="error-message">{{$message}}</p>
                             @enderror   
                         </div> 
                     </div>
 
-                    <input type="number" name='contactId' id='contactId' value="{{$contact->id}}" hidden>
+                    <input type="number" name='id' id='contactId' value="{{$contact->id}}" hidden>
                     <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mx-0 my-2" type="submit">Make Changes</button>
                 </form>
             </div>

@@ -55,7 +55,7 @@ class ContactsController extends Controller
             'phone' => ['required', 'min:8', 'max:12']
         ]);
 
-        DB::table('contacts')->where(['relatedUserId' => Auth::id(), 'id' => $request->input('contactId')])->update($formFields);
+        DB::table('contacts')->where(['relatedUserId' => Auth::id(), 'id' => $request->input('id')])->update($formFields);
 
         return redirect('/dashboard');
     }

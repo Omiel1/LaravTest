@@ -23,11 +23,6 @@ class UserController extends Controller
             "password" => ['required']
         ]);
 
-        auth()->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
         //Try and find user, if found generate session ID
         if(auth()->attempt($formFields)){
             $request->session()->regenerate();

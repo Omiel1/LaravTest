@@ -6,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@200&display=swap" rel="stylesheet"> 
     <title>LaravTest</title>
     <style>
+
          /* The device with borders */
         #phone-box{
+            font-family: 'Kanit', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             position: relative;
             width:500px;
             height: 800px;
-            background: rgb(194, 193, 193);
+            background: rgb(221, 216, 216);
             border: 16px black solid;
             border-top-width: 60px;
             border-bottom-width: 60px;
@@ -55,6 +60,11 @@
             background: white;
         }
 
+        /* Pages styling */
+
+        #head{
+            font-family: 'Anton', sans-serif;
+        }
         #contact-box{
             max-height: 100%;
             width:auto;
@@ -72,18 +82,52 @@
             position: absolute;
             bottom: 0;
         }
-        
+
+        #login-button{
+            margin-top: 15%;
+        }
+
+        #login-box{
+            margin-top:25%;
+        }
+
+        .error-message{
+            color:red;
+            font-size: 12px;
+        }
+
+        #logo{
+            position: relative;
+        }
+
+        /* Background animation -> https://alvarotrigo.com/blog/animated-backgrounds-css/ */
+        .bg {
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-size: 300% 300%;
+          background-image: linear-gradient(
+                -45deg, 
+                rgb(192, 189, 115) 0%, 
+                rgb(160, 169, 80) 25%, 
+                rgb(107, 54, 126) 51%, 
+                rgb(34, 20, 25) 100%
+          );  
+          animation: AnimateBG 20s ease infinite;
+        }
+
+        @keyframes AnimateBG { 
+          0%{background-position:0% 50%}
+          50%{background-position:100% 50%}
+          100%{background-position:0% 50%}
+        }
     </style>
 </head>
-<body>
+<body class="bg">
     <head>
-        <div class="container">
-            <div class="row">
-                <div class="text-center">
-                    <h1>ContactOS</h1>
-                </div>
-            </div>
-        </div>
+        
     </head>
 </body>
     {{--View output--}}

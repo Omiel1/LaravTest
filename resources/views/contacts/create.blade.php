@@ -4,9 +4,9 @@
 
 <div id="phone-box" class="position-absolute top-50 start-50 translate-middle">
     <div class="row p-0 m-0">
-        <div class="col-12 my-3 border-bottom ">
-            <h2> Create new contact</h2>
-        </div>
+        <h2 id='head' class='my-3'> ContactOS - Contact creation</h2>
+        <hr>
+        
         <form action="{{url('contacts/createContact')}}" method="POST">
             @csrf
             <div class="row align-items-center my-4">
@@ -20,7 +20,7 @@
                     <input type="text" name="name" class="form-control rounded-0" value="{{old('name')}}" autofocus>
                 
                     @error('name')
-                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                        <p class="error-message">{{$message}}</p>
                     @enderror 
                 </div>
             </div>
@@ -35,6 +35,9 @@
                 <div class="form-label-group my-2 col-6">
                     <input type="text" name="surname" class="form-control rounded-0" value="{{old('surname')}}" autofocus>
                 
+                    @error('surname')
+                        <p class="error-message">{{$message}}</p>
+                    @enderror 
                 </div>
             </div>
 
@@ -48,6 +51,9 @@
                 <div class="form-label-group my-2 col-6">
                     <input type="text" name="address" class="form-control rounded-0" value="{{old('address')}}">
                 
+                    @error('address')
+                        <p class="error-message">{{$message}}</p>
+                    @enderror 
                 </div> 
             </div>
 
@@ -61,6 +67,9 @@
                 <div class="form-label-group my-2 col-6">
                     <input type="text" name="email" class="form-control rounded-0" value="{{old('email')}}">
                 
+                    @error('email')
+                        <p class="error-message">{{$message}}</p>
+                    @enderror 
                 </div> 
             </div>
 
@@ -75,7 +84,7 @@
                     <input type="text" name="phone" class="form-control rounded-0" value="{{old('phone')}}">
                 
                     @error('phone')
-                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                        <p class="error-message">{{$message}}</p>
                     @enderror   
                 </div> 
             </div>

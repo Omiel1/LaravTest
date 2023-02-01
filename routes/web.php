@@ -80,7 +80,7 @@ Route::get('/contacts/create', [ContactsController::class, 'create']);
 Route::post('/contacts/createContact', [ContactsController::class, 'createContact']);
 
 //Route to specific contact details view
-Route::post('/contacts/details', [ContactsController::class, 'details']);
+Route::get('/contacts/details', [ContactsController::class, 'details']);
 
 //Route to editing contact
 Route::post('/contacts/editContact', [ContactsController::class, 'update']);

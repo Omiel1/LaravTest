@@ -6,7 +6,7 @@
     <h2 id='head' class='my-3'> ContactOS - Registration</h2>
     <hr>
 
-    <form action="{{url('postRegister')}}" method="POST">
+    <form action="{{url('users/postRegister')}}" method="POST">
         @csrf
         <div class="row align-items-center my-4">
             <div class="col-1 mx-3">
@@ -42,7 +42,7 @@
 
         <div class="row align-items-center my-4">
             <div class="col-1 mx-3">
-                <img src="{{asset('/images/contact_password_icon.png')}}" alt="" class="img-fluid">
+                <img src="{{asset('/images/user_password_icon.png')}}" alt="" class="img-fluid">
             </div>
             <div class="col-3">
                 Password

@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="phone-box" class="position-absolute top-50 start-50 translate-middle">
-    <h3 class="login-heading mb-4 my-4" id='head'>ContactOS - Login</h3>
+    <h2 class="login-heading mb-4 my-3" id='head'>ContactOS - Login</h2>
     <hr>
 
     <div id="login-box">
@@ -27,7 +27,7 @@
     
             <div class="row align-items-center my-4">
                 <div class="col-1 mx-3">
-                    <img src="{{asset('/images/contact_user_icon.png')}}" alt="" class="img-fluid">
+                    <img src="{{asset('/images/user_password_icon.png')}}" alt="" class="img-fluid">
                 </div>
                 <div class="col-2">
                     -Password-

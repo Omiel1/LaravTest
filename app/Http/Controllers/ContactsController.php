@@ -38,7 +38,7 @@ class ContactsController extends Controller
             'surname' => ['max:20'],
             'address' => ['max:127'],
             'email' => ['max:63'],
-            'phone' => ['required', 'min:8', 'max:12']
+            'phone' => ['required', 'min:8', 'max:12', 'regex:/[0-9]/']
         ]);
 
         Contact::create(array_merge($formFields, ['relatedUserId' => Auth::id()]));
@@ -48,11 +48,11 @@ class ContactsController extends Controller
 
     public function update(Request $request){
         $formFields = $request->validate([
-            'name' => ['required', 'min:3', 'max:20'],
+            'name' => ['required', 'min:3', 'max:15'],
             'surname' => ['max:20'],
             'address' => ['max:127'],
             'email' => ['max:63'],
-            'phone' => ['required', 'min:8', 'max:12']
+            'phone' => ['required', 'min:8', 'max:12', 'regex:/[0-9]/']
         ]);
 
         DB::table('contacts')->where(['relatedUserId' => Auth::id(), 'id' => $request->input('id')])->update($formFields);

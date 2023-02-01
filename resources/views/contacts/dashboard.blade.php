@@ -21,13 +21,13 @@
             </div>
         </div>
         
+        @if(count($contacts) == 0)
+            <p>No listings found</p>
+        @endif
+
         <!-- Generate list of contacts -->
         <div id="target">
             <div class="row align-items-center h-100">
-                @if(count($contacts) == 0)
-                    <p>No listings found</p>
-                @endif
-
                 <?php $count = 0; ?>
                 @foreach($contacts as $contact)
                 <?php $count++ ?>
@@ -43,12 +43,14 @@
     
                 @endif
             
-                <div class="col-2 mx-1">
+                <div class="col-3">
                     <h4>
-                        {{$contact->name}}
+                        <b>
+                            {{$contact->name}}
+                        </b>
                     </h4>
                 </div>
-                <div class="col-5">
+                <div class="col-4">
                     <span>
                         {{$contact->phone}}
                     </span>
@@ -58,7 +60,7 @@
                         <form action="{{url('contacts/details')}}" method="GET">
                             @csrf
                             <input type="number" name='contactId' id='contactId' value="{{$contact->id}}" hidden>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold w-100" type="submit">Details</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase w-100" type="submit">Details</button>
                         </form>
                     </p>
                 </div>

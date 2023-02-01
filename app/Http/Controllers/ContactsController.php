@@ -57,7 +57,7 @@ class ContactsController extends Controller
 
         DB::table('contacts')->where(['relatedUserId' => Auth::id(), 'id' => $request->input('id')])->update($formFields);
 
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('message', 'Changes made succesfully~');
     }
 
     public function deleteContact(Request $request){
@@ -65,8 +65,8 @@ class ContactsController extends Controller
             'contactId' => ['numeric', 'min:0']
         ]);
 
-        DB::table('contacts')->where(['relatedUserId' => Auth::id(), 'id' => $request->input('contactId')])->delete();
-        return redirect('/dashboard');
+        DB::table('contacts')->where(['relatedUserId' => Auth::id(), 'id' => $formFields['contactId']])->delete();
+        return redirect('/dashboard')->with('message', 'User deleted succesfully~');
     }
 
     public function getFromInput(Request $request){

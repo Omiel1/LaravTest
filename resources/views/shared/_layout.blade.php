@@ -134,6 +134,7 @@
     <div class="container text-center">
         @yield('content')
     </div>
+
 </body>
 
 <br><br>

@@ -5,15 +5,13 @@
 <?php $lastLetter = '-'; ?>
 
 <div id="phone-box" class="position-absolute top-50 start-50 translate-middle">
-
-    @if(count($contacts) == 0)
-        <p>No listings found</p>
-    @endif
-
     <div id='contact-box'>
+        
         <h2 class='my-3' id='head'>ContactOS - Contact List</h2>
         <hr>
-    
+        <!-- Alert -->
+        <x-alert-message />
+
         <!-- Search for contact  -->
         <div class="row my-4" style='height:30px;'>
             <div class="col-12">
@@ -26,6 +24,10 @@
         <!-- Generate list of contacts -->
         <div id="target">
             <div class="row align-items-center h-100">
+                @if(count($contacts) == 0)
+                    <p>No listings found</p>
+                @endif
+
                 <?php $count = 0; ?>
                 @foreach($contacts as $contact)
                 <?php $count++ ?>
@@ -94,8 +96,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script>
-    const searchField = document.getElementById('searchField');
-    const target = document.getElementById("target");
+    $('#alert-message').delay(1500).fadeOut(400);
 
     function searchContacts(){
         $_token = "{{ csrf_token() }}";

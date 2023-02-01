@@ -111,6 +111,7 @@
         <div class="col-6 m-0 px-0">
             <form action="{{url('contacts/delete')}}" method="POST">
                 @csrf
+                <input type="number" name='contactId' id='contactId' value="{{$contact->id}}" hidden>
                 <button class="btn btn-lg btn-danger text-uppercase font-weight-bold w-100 rounded-0" type="submit">Delete</button>
             </form>
         </div>

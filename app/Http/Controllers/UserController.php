@@ -10,11 +10,11 @@ class UserController extends Controller
 {
     //
     public function index(){
-        return View('login');
+        return View('users/login');
     }
 
     public function register(){
-        return View('register');
+        return View('users/register');
     }
 
     public function login(Request $request){
@@ -22,6 +22,11 @@ class UserController extends Controller
             "email" => ['required', 'email'],
             "password" => ['required']
         ]);
+
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         //Try and find user, if found generate session ID
         if(auth()->attempt($formFields)){

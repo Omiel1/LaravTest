@@ -57,16 +57,16 @@ Route::get("/search", function(Request $request){
 Route::get('/', [UserController::class, 'index']);
 
 //Validate user data and log in
-Route::post('/loginUser', [UserController::class, 'login']);
+Route::post('/users/loginUser', [UserController::class, 'login']);
 
 //Page with registration form
-Route::get('/register', [UserController::class, 'register']);
+Route::get('/users/register', [UserController::class, 'register']);
 
 //Create new user
-Route::post('/postRegister', [UserController::class, 'store']);
+Route::post('/users/postRegister', [UserController::class, 'store']);
 
 //Validate user data
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('logout', [UserController::class, 'logout']);
 
 
 //------Contact routes------
@@ -77,11 +77,17 @@ Route::get('dashboard', [ContactsController::class, 'index']);
 Route::get('/contacts/create', [ContactsController::class, 'create']);
 
 //Route to contact creation
-Route::post('contacts/createContact', [ContactsController::class, 'createContact']);
+Route::post('/contacts/createContact', [ContactsController::class, 'createContact']);
 
-//Route to specific contact details
+//Route to specific contact details view
 Route::post('/contacts/details', [ContactsController::class, 'details']);
+
+//Route to editing contact
+Route::post('/contacts/editContact', [ContactsController::class, 'update']);
 
 //Route to contact deletion
 Route::post('/contacts/delete', [ContactsController::class, 'deleteContact']);
 
+
+//------Scripts routes for AJAX------
+Route::get('contacts/getContacts', [ContactsController::class, 'getFromInput']);

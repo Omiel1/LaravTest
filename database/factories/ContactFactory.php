@@ -22,7 +22,7 @@ class ContactFactory extends Factory
             'email' => $this->faker->safeEmail(),
             'address' => $this->faker->address(),
             'phone' => $this->faker->phoneNumber(),
-            'relatedUserId' => $this->faker->numberBetween(0, 6)
+            'relatedUserId' => $this->faker->numberBetween(1, 6)
         ];
     }
 }
